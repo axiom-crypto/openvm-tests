@@ -1,9 +1,12 @@
 set -ex -o pipefail
 
-MASK=${1:-01ff}
-
+# build and transpile
 cargo openvm build
+# generate proving and verification keys
 cargo openvm keygen
-cargo openvm run --input "$MASK"
-cargo openvm prove app --input "$MASK" 2>&1 | tee prove-app.log
-cargo openvm prove evm --input "$MASK" 2>&1 | tee prove-evm.log
+# execute the program
+cargo openvm run
+# prove the program execution
+cargo openvm prove app | tee prove-app.log
+# recursively prove the verification of proof
+cargo openvm prove evm | tee prove-evm.log

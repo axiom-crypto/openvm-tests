@@ -1,6 +1,7 @@
-use crate::should_eq;
 use hex_literal::hex;
 use revm_precompile::modexp::run_inner;
+
+use crate::should_eq;
 
 const CASES: &[(&str, &[u8], &[u8])] = &[
     (

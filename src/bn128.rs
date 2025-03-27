@@ -1,7 +1,8 @@
-use crate::should_eq;
 use hex_literal::hex;
 use revm_precompile::bn128::{run_add, run_mul, run_pair};
 use revm_precompile::{PrecompileError, PrecompileErrors};
+
+use crate::should_eq;
 
 const BN128_ADD_CASES: &[(&str, &[u8], &[u8])] = &[
     (

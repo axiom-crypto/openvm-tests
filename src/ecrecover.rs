@@ -1,6 +1,7 @@
-use crate::{should_be_true, should_eq};
 use hex_literal::hex;
 use revm_precompile::{primitives::address, secp256k1::ec_recover_run, Address, Bytes};
+
+use crate::{should_be_true, should_eq};
 
 const CASES: &[(&str, &[u8], Option<Address>)] = &[
     (
