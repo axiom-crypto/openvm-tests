@@ -3,7 +3,7 @@ mod ecmul;
 mod ecpairing;
 mod ecrecover;
 mod keccak256;
-// mod modexp;
+mod modexp;
 mod secp256r1;
 mod sha256;
 
@@ -47,6 +47,9 @@ fn main() {
     // hash function tests
     keccak256::run_keccak_tests();
     sha256::run_sha256_tests();
+
+    // modexp tests
+    modexp::run_modexp_tests();
 
     // bn254 (alt bn128) tests
     ecadd::run_ecadd_tests();
