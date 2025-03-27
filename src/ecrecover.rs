@@ -56,7 +56,7 @@ const ECRECOVER_TEST_CASES: &[(&[u8], Option<Address>)] = &[
     ),
 ];
 
-/// Run all ECRECOVER function test cases
+/// Run all ecRecover function test cases
 pub fn run_ecrecover_tests() {
     for (input, expected) in ECRECOVER_TEST_CASES {
         let input = Bytes::from_static(input);

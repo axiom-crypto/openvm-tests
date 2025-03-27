@@ -1,6 +1,6 @@
 mod ecadd;
-// mod ecmul;
-// mod ecpairing;
+mod ecmul;
+mod ecpairing;
 // mod ecrecover;
 mod keccak256;
 // mod kzg_point_evaluation;
@@ -29,10 +29,10 @@ moduli_init! {
     // secp256k1
     "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f", // coordinate field
     "0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141", // scalar field
-    // p256 (secp256r1)
+    // secp256r1 (p256)
     "0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff", // coordinate field
     "0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551", // scalar field
-    // Bls12_381
+    // bls12_381
     "0x1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab", // coordinate field
     "0x73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001", // scalar field
 }
@@ -67,8 +67,8 @@ fn main() {
 
     // bn254 (alt bn128) tests
     ecadd::run_ecadd_tests();
-    // ecmul::run_ecmul_tests();
-    // ecpairing::run_ecpairing_tests();
+    ecmul::run_ecmul_tests();
+    ecpairing::run_ecpairing_tests();
 
     // secp256k1
     // ecrecover::run_ecrecover_tests();

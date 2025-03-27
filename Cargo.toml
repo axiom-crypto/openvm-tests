@@ -21,6 +21,7 @@ openvm-pairing-guest = { git = "https://github.com/openvm-org/openvm.git", rev =
 
 # revm
 revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v43-openvm", default-features = false, features = [
+    "std",
     # p256 precompile
     "secp256r1",
     # openvm intrinsics
@@ -31,8 +32,14 @@ revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v43-
     "openvm-kzg-intrinsics",
 ] }
 revm-primitives = { git = "https://github.com/axiom-crypto/revm", branch = "v43-openvm", default-features = false, features = [
+    "std",
+    # openvm intrinsics
     "openvm-kzg",
 ] }
 
 # testing
 hex-literal = "0.4.1"
+
+# [patch."https://github.com/axiom-crypto/revm.git"]
+# revm-precompile = { path = "../revm-axiom/crates/precompile" }
+# revm-primitives = { path = "../revm-axiom/crates/primitives" }
