@@ -1,11 +1,12 @@
-use keccak256::run_keccak_tests;
-
 // mod bn128;
 // mod ecrecover;
 mod keccak256;
 // mod modexp;
 // mod secp256r1;
-// mod sha256;
+mod sha256;
+
+use keccak256::run_keccak_tests;
+use sha256::run_sha256_tests;
 
 // use {
 //     openvm::platform as openvm_platform,
@@ -49,4 +50,5 @@ fn main() {
     // let mask = read_mask();
 
     run_keccak_tests();
+    run_sha256_tests();
 }
