@@ -1,8 +1,12 @@
-use crate::should_eq;
-
 use revm_primitives::keccak256;
 
-const CASES: &[(&[u8], [u8; 32])] = &[
+/// Vector of test cases for Keccak-256 hash function.
+/// Each test case consists of (input_bytes, expected_hash_result).
+const KECCAK_TEST_CASES: &[(&[u8], [u8; 32])] = &[
+    (
+        &hex_literal::hex!(""),
+        hex_literal::hex!("c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"),
+    ),
     (
         &hex_literal::hex!("91376f5774419e518ced240cfb7ce0fbb835d80c609f7db3736a8474381c23cb7dde504e009f8d9656351a22ff18172046cbd80e074ee99ac7cc95f0daf32c35d4a0b41932d6efee42790e0298fa3d8f0d362f79008e9bd9989b355470e714aebd0d5936bbbfcc11d4"),
         hex_literal::hex!("bcd603061b992b3c881b2418a691c4a77606f4e9ff4fb1e57bd64118430f9e64"),
@@ -133,9 +137,10 @@ const CASES: &[(&[u8], [u8; 32])] = &[
     ),
 ];
 
-pub fn test_all() {
-    for (idx, (input, expected)) in CASES.iter().enumerate() {
-        let outcome = keccak256(input);
-        should_eq!(outcome, *expected, "keccak256#{idx}");
+/// Run all Keccak-256 hash function test cases
+pub fn run_keccak_tests() {
+    for (input, expected) in KECCAK_TEST_CASES.iter() {
+        let result = keccak256(input);
+        assert_eq!(result, expected);
     }
 }

@@ -1,3 +1,5 @@
+use keccak256::run_keccak_tests;
+
 // mod bn128;
 // mod ecrecover;
 mod keccak256;
@@ -46,67 +48,5 @@ fn main() {
 
     // let mask = read_mask();
 
-    for (idx, (test, name)) in [
-        // bn128::test_alt_bn128_add,
-        // bn128::test_alt_bn128_mul,
-        // bn128::test_alt_bn128_pair,
-        // ecrecover::test_all,
-        // modexp::test_all,
-        // secp256r1::test_p256_verify,
-        // sha256::test_all,
-        keccak256::test_all,
-    ]
-    .into_iter()
-    .zip([
-        // "alt_bn128_add",
-        // "alt_bn128_mul",
-        // "alt_bn128_pair",
-        // "ecrecover",
-        // "modexp",
-        // "p256_verify",
-        // "sha256",
-        "keccak256",
-    ])
-    .enumerate()
-    {
-        // if mask & (1 << idx) == 0 {
-        //     println!("Skipping test {name}");
-        //     continue;
-        // }
-        println!("Running test {name}");
-        test();
-        println!("Done");
-    }
-}
-
-// fn read_mask() -> u8 {
-//     openvm::io::read_vec()[0]
-// }
-
-#[macro_export]
-macro_rules! should_eq {
-    ($left:expr, $right:expr, $($arg:tt)+) => {
-        match (&$left, &$right) {
-            (left_val, right_val) => {
-                if !(*left_val == *right_val) {
-                    println!("fail: {}", format_args!($($arg)+));
-                    assert_eq!($left, $right, $($arg)+);
-                } else {
-                    println!("pass: {}", format_args!($($arg)+));
-                }
-            }
-        }
-    };
-}
-
-#[macro_export]
-macro_rules! should_be_true {
-    ($cond:expr, $($arg:tt)+) => {
-        if !$cond {
-            println!("fail: {}", format_args!($($arg)+));
-            assert!($cond, $($arg)+);
-        } else {
-            println!("pass: {}", format_args!($($arg)+));
-        }
-    };
+    run_keccak_tests();
 }
