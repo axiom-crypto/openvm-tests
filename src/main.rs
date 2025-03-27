@@ -1,7 +1,7 @@
 mod ecadd;
 mod ecmul;
 mod ecpairing;
-// mod ecrecover;
+mod ecrecover;
 mod keccak256;
 // mod kzg_point_evaluation;
 mod modexp;
