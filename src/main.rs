@@ -8,6 +8,10 @@ mod modexp;
 mod secp256r1;
 mod sha256;
 
+use openvm_algebra_complex_macros::complex_init;
+use openvm_algebra_guest::moduli_macros::moduli_init;
+use openvm_ecc_guest::sw_macros::sw_init;
+
 #[allow(unused_imports)]
 use openvm_ecc_guest::k256::Secp256k1Point;
 #[allow(unused_imports)]
@@ -18,7 +22,7 @@ use openvm_pairing_guest::bls12_381::Bls12_381G1Affine;
 use openvm_pairing_guest::bn254::Bn254G1Affine;
 
 // initialize moduli
-openvm_algebra_guest::moduli_macros::moduli_init! {
+moduli_init! {
     // bn254 (alt bn128)
     "0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47", // coordinate field
     "0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001", // scalar field
@@ -33,12 +37,12 @@ openvm_algebra_guest::moduli_macros::moduli_init! {
     "0x73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001", // scalar field
 }
 // initialize complex extensions of moduli
-openvm_algebra_complex_macros::complex_init! {
+complex_init! {
     Bn254Fp2 { mod_idx = 0 },
     Bls12_381Fp2 { mod_idx = 6 },
 }
 // initialize elliptic curves
-openvm_ecc_guest::sw_macros::sw_init! {
+sw_init! {
     Bn254G1Affine,
     Secp256k1Point,
     P256Point,

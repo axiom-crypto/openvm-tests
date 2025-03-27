@@ -10,17 +10,13 @@ openvm = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da
 ] }
 openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
 openvm-algebra-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
-openvm-bigint-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
 openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
     "k256",
     "p256",
 ] }
-openvm-sha256-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
-openvm-keccak256-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
 openvm-pairing-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
     "bn254",
 ] }
-openvm-rv32im-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
 
 # revm
 revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v43-openvm", default-features = false, features = [
@@ -39,10 +35,3 @@ revm-primitives = { git = "https://github.com/axiom-crypto/revm", branch = "v43-
 
 # testing
 hex-literal = "0.4.1"
-ecdsa-core = { version = "0.16.9", package = "ecdsa", default-features = false, features = [
-    "der",
-] }
-k256 = { version = "0.13.3", default-features = false, features = ["ecdsa"] }
-p256 = { version = "0.13.2", default-features = false, features = ["ecdsa"] }
-primeorder = { version = "0.13" }
-tiny-keccak = { version = "2.0", features = ["keccak"] }

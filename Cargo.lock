@@ -1368,20 +1368,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "openvm-bigint-guest"
-version = "1.0.0-rc.2"
-source = "git+https://github.com/openvm-org/openvm.git?rev=3c35e9f369da8dee065a089fb72f3580af7dcaf9#3c35e9f369da8dee065a089fb72f3580af7dcaf9"
-dependencies = [
- "num-bigint 0.4.6",
- "num-traits",
- "openvm",
- "openvm-platform",
- "serde",
- "serde-big-array",
- "strum_macros",
-]
-
-[[package]]
 name = "openvm-circuit"
 version = "1.0.0-rc.2"
 source = "git+https://github.com/openvm-org/openvm.git?rev=3c35e9f369da8dee065a089fb72f3580af7dcaf9#3c35e9f369da8dee065a089fb72f3580af7dcaf9"
@@ -1691,23 +1677,14 @@ dependencies = [
 name = "openvm-tests"
 version = "0.1.0"
 dependencies = [
- "ecdsa",
  "hex-literal 0.4.1",
- "k256",
  "openvm",
  "openvm-algebra-complex-macros",
  "openvm-algebra-guest",
- "openvm-bigint-guest",
  "openvm-ecc-guest",
- "openvm-keccak256-guest",
  "openvm-pairing-guest",
- "openvm-rv32im-guest",
- "openvm-sha256-guest",
- "p256",
- "primeorder",
  "revm-precompile",
  "revm-primitives",
- "tiny-keccak",
 ]
 
 [[package]]
