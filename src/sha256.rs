@@ -43,8 +43,9 @@ const SHA256_TEST_CASES: &[(&[u8], [u8; 32])] = &[
 
 /// Run all SHA-256 hash function test cases
 pub fn run_sha256_tests() {
-    for (input, expected) in SHA256_TEST_CASES.iter() {
-        let outcome = sha256_run(&Bytes::from_static(input), u64::MAX).unwrap();
+    for (input, expected) in SHA256_TEST_CASES {
+        let input = Bytes::from_static(input);
+        let outcome = sha256_run(&input, u64::MAX).unwrap();
         assert_eq!(outcome.bytes.as_ref(), expected.as_slice());
     }
 }

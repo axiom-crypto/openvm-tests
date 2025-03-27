@@ -2373,6 +2373,7 @@ dependencies = [
  "openvm-kzg",
  "openvm-pairing-guest",
  "openvm-sha256-guest",
+ "p256",
  "revm-primitives",
  "ripemd",
  "sha2",

@@ -118,7 +118,7 @@ const ECMUL_CASES: &[(&[u8], [u8; 64])] = &[
 
 /// Run all ECMUL test cases
 pub fn run_ecmul_tests() {
-    for (input, expected) in ECMUL_CASES.iter() {
+    for (input, expected) in ECMUL_CASES {
         let outcome = run_mul(input, 0, 0).unwrap();
         assert_eq!(outcome.bytes.as_ref(), expected.as_slice());
     }

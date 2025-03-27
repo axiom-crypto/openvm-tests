@@ -144,7 +144,7 @@ const KECCAK_TEST_CASES: &[(&[u8], [u8; 32])] = &[
 
 /// Run all Keccak-256 hash function test cases
 pub fn run_keccak_tests() {
-    for (input, expected) in KECCAK_TEST_CASES.iter() {
+    for (input, expected) in KECCAK_TEST_CASES {
         let result = keccak256(input);
         assert_eq!(result, expected);
     }

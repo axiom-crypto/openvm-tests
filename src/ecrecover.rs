@@ -59,7 +59,8 @@ const ECRECOVER_TEST_CASES: &[(&[u8], Option<Address>)] = &[
 /// Run all ECRECOVER function test cases
 pub fn run_ecrecover_tests() {
     for (input, expected) in ECRECOVER_TEST_CASES {
-        let result = ec_recover_run(&Bytes::from_static(input), u64::MAX).unwrap();
+        let input = Bytes::from_static(input);
+        let result = ec_recover_run(&input, u64::MAX).unwrap();
 
         match expected {
             Some(address) => assert_eq!(Address::from_slice(&result.bytes[12..]), *address),
