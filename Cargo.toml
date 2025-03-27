@@ -24,7 +24,9 @@ openvm-rv32im-guest = { git = "https://github.com/openvm-org/openvm.git", rev = 
 
 # revm
 revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v43-openvm", default-features = false, features = [
-    "openvm",
+    "openvm-bn",
+    "openvm-sha2",
+    "openvm-k256",
     "openvm-kzg",
     "openvm-kzg-intrinsics",
 ] }
