@@ -73,9 +73,10 @@ fn main() {
     // secp256k1
     ecrecover::run_ecrecover_tests();
 
-    // secp256r1
+    // secp256r1 (p256) verify
     // TODO: no intrinsic
     secp256r1::run_p256_tests();
 
+    // kzg point evaluation
     kzg_point_evaluation::run_kzg_point_evaluation_tests();
 }
