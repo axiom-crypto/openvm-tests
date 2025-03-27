@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 # openvm
-openvm = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", features = [
+openvm = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
     "std",
 ] }
 openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
@@ -16,6 +16,7 @@ openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c
 ] }
 openvm-pairing-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
     "bn254",
+    "bls12_381",
 ] }
 
 # revm
