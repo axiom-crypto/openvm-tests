@@ -1,9 +1,7 @@
-mod ecadd;
-mod ecmul;
-mod ecpairing;
+mod bn128;
 mod ecrecover;
 mod keccak256;
-// mod kzg_point_evaluation;
+mod kzg_point_evaluation;
 mod modexp;
 mod secp256r1;
 mod sha256;
@@ -66,17 +64,16 @@ fn main() {
     modexp::run_modexp_tests();
 
     // bn254 (alt bn128) tests
-    ecadd::run_ecadd_tests();
-    ecmul::run_ecmul_tests();
-    ecpairing::run_ecpairing_tests();
+    bn128::run_ecadd_tests();
+    bn128::run_ecmul_tests();
+    bn128::run_ecpairing_tests();
 
     // secp256k1
-    // ecrecover::run_ecrecover_tests();
+    ecrecover::run_ecrecover_tests();
 
     // secp256r1 (p256) verify
-    // TODO: create an intrinsic for this?
     secp256r1::run_p256_tests();
 
     // kzg point evaluation
-    // kzg_point_evaluation::run_kzg_point_evaluation_tests();
+    kzg_point_evaluation::run_kzg_point_evaluation_tests();
 }

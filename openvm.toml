@@ -3,6 +3,8 @@
 [app_vm_config.rv32m]
 range_tuple_checker_sizes = [256, 8192]
 
+[app_vm_config.io]
+
 [app_vm_config.keccak]
 
 [app_vm_config.sha256]
