@@ -5,16 +5,16 @@ edition = "2021"
 
 [dependencies]
 # openvm
-openvm = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
+openvm = { git = "https://github.com/openvm-org/openvm.git", rev = "f41640c37bc5468a0775a38098053fe37ea3538a", default-features = false, features = [
     "std",
 ] }
-openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
-openvm-algebra-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false }
-openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
+openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", rev = "f41640c37bc5468a0775a38098053fe37ea3538a", default-features = false }
+openvm-algebra-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "f41640c37bc5468a0775a38098053fe37ea3538a", default-features = false }
+openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "f41640c37bc5468a0775a38098053fe37ea3538a", default-features = false, features = [
     "k256",
     "p256",
 ] }
-openvm-pairing-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "3c35e9f369da8dee065a089fb72f3580af7dcaf9", default-features = false, features = [
+openvm-pairing-guest = { git = "https://github.com/openvm-org/openvm.git", rev = "f41640c37bc5468a0775a38098053fe37ea3538a", default-features = false, features = [
     "bn254",
     "bls12_381",
 ] }
@@ -39,3 +39,10 @@ revm-primitives = { git = "https://github.com/axiom-crypto/revm", branch = "v43-
 
 # testing
 hex-literal = "0.4.1"
+
+# [patch."https://github.com/axiom-crypto/revm.git"]
+# revm-precompile = { path = "../revm-axiom/crates/precompile" }
+# revm-primitives = { path = "../revm-axiom/crates/primitives" }
+
+# [patch."https://github.com/axiom-crypto/openvm-kzg.git"]
+# openvm-kzg = { path = "../openvm-kzg/crates/kzg" }
