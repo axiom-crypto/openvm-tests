@@ -10,7 +10,9 @@ cargo openvm keygen
 cargo openvm prove app
 # verify the proof
 cargo openvm verify app
-# recursively prove the verification of proof
+# download kzg params and aggreggation key
+cargo openvm setup
+# generate aggregation proof
 # cargo openvm prove evm
 # verify the evm proof
 # cargo openvm verify evm
