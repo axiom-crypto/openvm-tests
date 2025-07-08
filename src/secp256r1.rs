@@ -1,5 +1,6 @@
 use hex_literal::hex;
-use revm_precompile::{secp256r1, Bytes, B256};
+use revm_precompile::secp256r1;
+use revm_primitives::{Bytes, B256};
 
 /// Vector of test cases for secp256r1 p256verify function.
 /// Each test case consists of input bytes and expected success result.

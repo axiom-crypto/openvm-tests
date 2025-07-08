@@ -1,5 +1,6 @@
 use hex_literal::hex;
-use revm_precompile::{hash::sha256_run, Bytes};
+use revm_precompile::hash::sha256_run;
+use revm_primitives::Bytes;
 
 /// Vector of test cases for SHA-256 hash function.
 /// Each test case consists of (test_name, input_bytes, expected_hash_result).

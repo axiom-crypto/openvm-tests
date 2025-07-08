@@ -1,5 +1,6 @@
 use hex_literal::hex;
-use revm_precompile::{primitives::address, secp256k1::ec_recover_run, Address, Bytes};
+use revm_precompile::secp256k1::ec_recover_run;
+use revm_primitives::{address, Address, Bytes};
 
 /// Vector of test cases for ecRecover precompile.
 /// Each test case consists of (input_bytes, expected_address_result).

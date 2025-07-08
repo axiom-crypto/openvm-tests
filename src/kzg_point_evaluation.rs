@@ -1,12 +1,12 @@
 use hex_literal::hex;
-use revm_precompile::kzg_point_evaluation::run;
-use revm_primitives::{Bytes, Env};
-use revm_primitives::{PrecompileError, PrecompileErrors};
+use revm_precompile::{kzg_point_evaluation::run, PrecompileError};
+use revm_primitives::Bytes;
+// use revm_primitives::{PrecompileError, PrecompileErrors};
 
 /// Type alias for test case input
 type TestCaseInput = &'static [u8];
 /// Type alias for test case expected output
-type TestCaseOutput = Result<[u8; 64], PrecompileErrors>;
+type TestCaseOutput = Result<[u8; 64], PrecompileError>;
 /// Type alias for a KZG point evaluation test case
 type KzgPointEvaluationTestCase = (TestCaseInput, TestCaseOutput);
 
@@ -21,7 +21,7 @@ const KZG_POINT_EVALUATION_TEST_CASES: &[KzgPointEvaluationTestCase] = &[
     // https://etherscan.io/tx/0x77e17d28223f3250ad3c6943da309077409427eb1d44c4613727d0155fbcd970
     (
         &hex!("01daea18a8eae6352683ed6614db4369569cd049c0228f64cd9d898de870f5692e5e86404fe0e8bd315c5d24fc35657b306db2c697e8630602c469a2a402152726e7af293b70e0f025157954fd0db9ca98209741de8fc5c1604d15cf7299ad6199ed84aaaae68a5ee748d90005b29ee8b2215bea04b5310b0b6ccffc5af94a3d2772dbe4ae3bf94d89957699abac7e99aa77f12f3fbbe1d2f4793f0040b9b490d2d2990850851693cbd256c6a67ea8ee1c5e31c271f2b7a25be096efbadbf621"),
-        Err(PrecompileErrors::Error(PrecompileError::BlobVerifyKzgProofFailed)),
+        Err(PrecompileError::BlobVerifyKzgProofFailed),
     ),
 ];
 
@@ -29,7 +29,7 @@ const KZG_POINT_EVALUATION_TEST_CASES: &[KzgPointEvaluationTestCase] = &[
 pub fn run_kzg_point_evaluation_tests() {
     for (input, expected) in KZG_POINT_EVALUATION_TEST_CASES {
         let input = Bytes::from_static(input);
-        let result = run(&input, u64::MAX, &Env::default());
+        let result = run(&input, u64::MAX);
 
         match (result, expected) {
             (Ok(output), Ok(expected_bytes)) => {

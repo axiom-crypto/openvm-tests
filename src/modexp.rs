@@ -111,7 +111,7 @@ const MODEXP_TEST_CASES: &[(&[u8], &[u8])] = &[
 /// Run all modular exponentiation test cases
 pub fn run_modexp_tests() {
     for (input, expected) in MODEXP_TEST_CASES {
-        let outcome = run_inner(input, u64::MAX, 0, |_, _, _, _| 0).unwrap();
+        let outcome = run_inner::<_, true>(input, u64::MAX, 0, |_, _, _, _| 0).unwrap();
         assert_eq!(&outcome.bytes.as_ref(), expected);
     }
 }

@@ -1,7 +1,7 @@
 use hex_literal::hex;
 use revm_precompile::{
     bn128::{run_add, run_mul, run_pair},
-    PrecompileError, PrecompileErrors,
+    PrecompileError,
 };
 
 /// Vector of test cases for ecAdd precompile.
@@ -232,7 +232,7 @@ const ECMUL_CASES: &[(&[u8], [u8; 64])] = &[
 /// Type alias for test case input
 type TestCaseInput = &'static [u8];
 /// Type alias for test case expected output
-type TestCaseOutput = Result<&'static [u8], PrecompileErrors>;
+type TestCaseOutput = Result<&'static [u8], PrecompileError>;
 /// Type alias for a pairing test case
 type PairingTestCase = (TestCaseInput, TestCaseOutput);
 
@@ -317,7 +317,7 @@ const ECPAIRING_CASES: &[PairingTestCase] = &[
     // sepolia.scrollscan.com transaction test case
     (
         &hex!("f736f6f8fdc7839c518a5011ad11a8384742778efbd1377dc0473b3600d301edef18eb4967eb80278618f9e0cd0f9f33ce9fc45ab15a5dae351dd6d968e478e98ede98c55a0d9d536f9869c3701e8b3b9dff6fe6dae3df018e063d49e57d4b4f30149301c3ac411e846a243cc806e9cd0eddb96cab07940ac269636f2116bf67273e6de4c42dfae5b1dd36c729577924e54d13d43152482d0df4d1539a9504b89a7ea6b627f4b6b6b922cdd5f08a8fe27296e14bc2bb47895c0c30ca861affc3"),
-        Err(PrecompileErrors::Error(PrecompileError::Bn128FieldPointNotAMember)),
+        Err(PrecompileError::Bn128FieldPointNotAMember),
     ),
     // scrollscan.com transaction test case
     (
@@ -327,7 +327,7 @@ const ECPAIRING_CASES: &[PairingTestCase] = &[
     // sepolia.scrollscan.com transaction error case
     (
         &hex!("06a7b64af8f414bcbeef455b1da5208c9b592b83ee6599824caa6d2ee9141a76277d002f54436e7da803601aec9cf8740ce99198c18a74286d979cbc9695cd8b1014772f57bb9742735191cd5dcfe4ebbc04156b6878a0a7c9824f32ffb66e8506064e784db10e9051e52826e192715e8d7e478cb09a5e0012defa0694fbc7f5021e2335f3354bb7922ffcc2f38d3323dd9453ac49b55441452aeaca147711b2058e1d5681b5b9e0074b0f9c8d2c68a069b920d74521e79765036d57666c559709f4ca411a3f52f4e0792fd9e792779856719215d3b32a762afe3d5b8c684af90d8ef3d795acd4b35d4366ab22e4ad335273aa59429e26929d0f64583474d9c8203e205db4f19b37b60121b83a7333706db86431c6d835849957ed8c3928ad7927dc7234fd11d3e8c36c59277c3e6f149d5cd3cfa9a62aee49f8130962b4b3b9195e8aa5b7827463722b8c153931579d3505566b4edf48d498e185f0509de15204bb53b8977e5f92a0bc372742c4830944a59b4fe6b1c0466e2a6dad122b5d2e2e83fcb0416df2e0599079ad4358237ebbcc051c1ef925d1bbe59ea035bb04bb099ab042fbcc9f89fa4ce34fafb910263660c6d9fff8bf13f5bf456a42547c1918ae4f2015274a7d0d8142d845f7470e120fc800a759415089bc8616b6237c0910485bfaa12fa2c55ec86d7543b3f1884807bb9f8d42a1dd32a4cfe7ac0956520edc9ef9a928b77bea47eacfa88ccbc7db57a01a72dceca1a5fba69947c87f84180f7b5123c02164cebec652f5d75505ea37815294b1e10ad935d116fcf906381332e52cfcf7d8d5e817243c7bd145cc10108c0c005844e0cf93ed0b2ba5d3970451154fd78a0fc8165ca7738d30141cc50fcff56f568c3c9ce3dd831a5357b8248dd1cc1133cb0acdfcd50f4382b5014bcb06c6f06a87a1387e67b5fcd8dcbe22304c3f6044fb716a80985d42c8d90eff4ee51b804ba6d0f3747a8871abd22c0c2e79f5c39b34325fcb28fd86fef7c0959ccb45066a2dd0987ff1ecaa56de902633fe81d90d8002a06c501bcf5d564deb593969c83b8ad013d194f107a1c71d"),
-        Err(PrecompileErrors::Error(PrecompileError::Bn128AffineGFailedToCreate)),
+        Err(PrecompileError::Bn128AffineGFailedToCreate),
     )
 ];
 
