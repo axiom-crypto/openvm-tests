@@ -5,21 +5,22 @@ edition = "2021"
 
 [dependencies]
 # openvm
-openvm = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false, features = [
+openvm = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false, features = [
     "std",
 ] }
-openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false }
-openvm-algebra-guest = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false }
-openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false }
-k256 = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false }
-p256 = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false }
-openvm-pairing = { git = "https://github.com/openvm-org/openvm.git", branch = "feat/new-execution", default-features = false, features = [
+openvm-algebra-complex-macros = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false }
+openvm-algebra-guest = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false }
+openvm-ecc-guest = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false }
+k256 = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false }
+p256 = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false }
+openvm-sha2 = { git = "https://github.com/openvm-org/openvm.git", branch = "main" }
+openvm-pairing = { git = "https://github.com/openvm-org/openvm.git", branch = "main", default-features = false, features = [
     "bn254",
     "bls12_381",
 ] }
 
 # revm
-revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v75-openvm-new-exec", default-features = false, features = [
+revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v75-openvm", default-features = false, features = [
     "std",
     # p256 precompile
     "secp256r1",
@@ -30,7 +31,7 @@ revm-precompile = { git = "https://github.com/axiom-crypto/revm", branch = "v75-
     "openvm-kzg",
     "openvm-kzg-intrinsics",
 ] }
-revm-primitives = { git = "https://github.com/axiom-crypto/revm", branch = "v75-openvm-new-exec", default-features = false, features = [
+revm-primitives = { git = "https://github.com/axiom-crypto/revm", branch = "v75-openvm", default-features = false, features = [
     "std",
 ] }
 
@@ -41,7 +42,7 @@ getrandom = { version = "0.2.16", default-features = false, features = [
 # testing
 hex-literal = "0.4.1"
 
-# [patch."https://github.com/openvm-org/openvm.git"]
+# [patch."https:/ithub.com/openvm-org/openvm.git"]
 # # openvm
 # openvm = { path = "../openvm/crates/toolchain/openvm" }
 # openvm-algebra-guest = { path = "../openvm/extensions/algebra/guest" }
